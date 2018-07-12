@@ -11,7 +11,7 @@
 
     <title>
         
-        柳晓龙的博客 | Leon&#39;s Blog
+        Linux学习之路0x00——计算机概论 - 柳晓龙的博客 | Leon&#39;s Blog
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archive">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -87,6 +87,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机概论"><span class="toc-text">计算机概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机的硬件组成的5个部件"><span class="toc-text">计算机的硬件组成的5个部件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU架构与相关设备原件"><span class="toc-text">CPU架构与相关设备原件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-text">操作系统</span></a></li></ol></li></ol>
+</div>
     
 </div>
 
@@ -113,80 +117,66 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        Linux学习之路0x00——计算机概论
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-07-12 13:11:20</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><em>本系列文章主要记录本人学习<a href="http://linux.vbird.org/" target="_blank" rel="noopener">《鸟哥的Linux私房菜》</a>过程中的重点难点。之前也有学习过Linux，但都是半途而废，现在希望有所记录，有所收获，坚持不懈。</em></p>
+<h1 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h1><p>本文章对应<a href="http://linux.vbird.org/" target="_blank" rel="noopener">《鸟哥的Linux私房菜》</a>的第零章《计算机概论》。这一章的内容，实际上在《计算机组成原理》课程中已经学过了，但很容易忘记，所以就将重点做个简单的记录，重点在于那些重要的，易忘的，不做完全的记录。</p>
+<h2 id="计算机的硬件组成的5个部件"><a href="#计算机的硬件组成的5个部件" class="headerlink" title="计算机的硬件组成的5个部件"></a>计算机的硬件组成的5个部件</h2><ul>
+<li>输入</li>
+<li>输出</li>
+<li>控制单元</li>
+<li>运算单元</li>
+<li>存储</li>
+</ul>
+<h2 id="CPU架构与相关设备原件"><a href="#CPU架构与相关设备原件" class="headerlink" title="CPU架构与相关设备原件"></a>CPU架构与相关设备原件</h2><ul>
+<li>北桥： 负责链接速度较快的CPU、内存和显卡等原件，现一般整合在CPU中</li>
+<li>南桥： 负责链接速度较慢的设备接口，如硬盘、USB、网卡等</li>
+<li>内存： DRAM（SDRAM、DDR）</li>
+<li>CPU高速缓存：　SRAM</li>
+<li>固件(firmware)： 如BIOS程序写在固件中，掉电保持。</li>
+<li>磁盘<ul>
+<li>磁头（head）</li>
+<li>磁道（track）</li>
+<li>柱面（cylinder）</li>
+<li>扇区（sector）</li>
+<li>圆盘（platter）</li>
+<li>缓存</li>
+<li>接口 SATA、SAS、USB</li>
+</ul>
+</li>
+<li>设备IO与IRQ中断信道</li>
+</ul>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统是用户和计算机的接口，同时也是计算机硬件和其他软件的接口。<br>核心功能：</p>
+<ul>
+<li>系统调用接口</li>
+<li>程序管理</li>
+<li>内存管理</li>
+<li>文件系统管理</li>
+<li>设备驱动（操作系统提供接口，厂商提供驱动程序）</li>
+</ul>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>07-12</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/07/12/Linux学习之路0x01——什么是Linux/">
-                        <span>
-                            Linux学习之路0x01——什么是Linux
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>07-12</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/07/12/Linux学习之路0x00——计算机概论/">
-                        <span>
-                            Linux学习之路0x00——计算机概论
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>07-12</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/07/12/使用hexo部署GitHub博客过程记录/">
-                        <span>
-                            使用hexo部署GitHub博客过程记录
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>07-10</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/07/10/hello-world/">
-                        <span>
-                            Hello World
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-
-    </ul>
-</div>
-
+        <div id="comment-container">
+        </div>
+    </div>
 </div>
     </div>
 </div>
@@ -234,7 +224,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

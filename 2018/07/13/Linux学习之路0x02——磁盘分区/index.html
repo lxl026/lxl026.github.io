@@ -142,14 +142,14 @@
 <h1 id="MBR"><a href="#MBR" class="headerlink" title="MBR"></a><a href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="noopener">MBR</a></h1><blockquote>
 <p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，是计算机开机后访问硬盘时所必须要读取的首个扇区，它在硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。在深入讨论主引导扇区内部结构的时候，有时也将其开头的446字节内容特指为“主引导记录”（MBR），其后是4个16字节的“磁盘分区表”（DPT），以及2字节的结束标志（55AA）。因此，在使用“主引导记录”（MBR）这个术语的时候，需要根据具体情况判断其到底是指整个主引导扇区，还是主引导扇区的前446字节。</p>
 </blockquote>
-<p><img src="/img/MBR.jpg" alt="标准MBR结构"></p>
+<p><img src="/img/MBR.JPG" alt="标准MBR结构"></p>
 <h2 id="主引导记录的组成"><a href="#主引导记录的组成" class="headerlink" title="主引导记录的组成"></a>主引导记录的组成</h2><ul>
 <li><p>启动代码</p>
 <p>  主引导记录最开头是第一阶段引导代码。其中的硬盘引导程序的主要作用是检查分区表是否正确并且在系统硬件完成自检以后将控制权交给硬盘上的引导程序（如GNU GRUB）。它不依赖任何操作系统，而且启动代码也是可以改变的，从而能够实现多系统引导。</p>
 </li>
 <li><p>硬盘分区表</p>
 <p>  硬盘分区表占据主引导扇区的64个字节（偏移01BEH–偏移01FDH），可以对四个分区的信息进行描述，其中每个分区的信息占据16个字节。具体每个字节的定义可以参见硬盘分区结构信息。</p>
-<p>  <img src="/img/DPT.jpg" alt="硬盘分区结构信息"></p>
+<p>  <img src="/img/DPT.JPG" alt="硬盘分区结构信息"></p>
 </li>
 <li><p>结束标志字</p>
 <p>  结束标志字55，AA（偏移1FEH－偏移1FFH）最后两个字节，是检验主引导记录是否有效的标志。</p>
@@ -195,10 +195,10 @@
 <p>在使用MBR/GPT混合分区表的硬盘中，这部分存储了GPT分区表的一部分分区（通常是前四个分区），可以使不支持从GPT启动的操作系统从这个MBR启动，启动后只能操作MBR分区表中的分区。如Boot Camp就是使用这种方式启动Windows。</p>
 <h2 id="分区表头-LBA-1"><a href="#分区表头-LBA-1" class="headerlink" title="分区表头 (LBA 1)"></a>分区表头 (LBA 1)</h2><p>分区表头定义了硬盘的可用空间以及组成分区表的项的大小和数量。在使用64位Windows Server 2003的机器上，最多可以创建128个分区，即分区表中保留了128个项，其中每个都是128字节。（EFI标准要求分区表最小要有16,384字节，即128个分区项的大小）</p>
 <p>分区表头还记录了这块硬盘的GUID，记录了分区表头本身的位置和大小（位置总是在LBA 1）以及备份分区表头和分区表的位置和大小（在硬盘的最后）。它还储存着它本身和分区表的CRC32校验。固件、引导程序和操作系统在启动时可以根据这个校验值来判断分区表是否出错，如果出错了，可以使用软件从硬盘最后的备份GPT中恢复整个分区表，如果备份GPT也校验错误，硬盘将不可使用。所以GPT硬盘的分区表不可以直接使用16进制编辑器修改。</p>
-<p><img src="/img/GPT_LBA1.jpg" alt="GPT_LBA1"></p>
+<p><img src="/img/GPT_LBA1.JPG" alt="GPT_LBA1"></p>
 <p>主分区表和备份分区表的头分别位于硬盘的第二个扇区（LBA 1）以及硬盘的最后一个扇区。备份分区表头中的信息是关于备份分区表的。</p>
 <h2 id="分区表项-LBA-2–33"><a href="#分区表项-LBA-2–33" class="headerlink" title="分区表项 (LBA 2–33)"></a>分区表项 (LBA 2–33)</h2><p>GPT分区表使用简单而直接的方式表示分区。一个分区表项的前16字节是分区类型GUID。例如，EFI系统分区的GUID类型是{C12A7328-F81F-11D2-BA4B-00A0C93EC93B}。接下来的16字节是该分区唯一的GUID（这个GUID指的是该分区本身，而之前的GUID指的是该分区的类型）。再接下来是分区起始和末尾的64位LBA编号，以及分区的名字和属性。</p>
-<p><img src="/img/GPT_LBA233.jpg" alt="GPT_LBA233"></p>
+<p><img src="/img/GPT_LBA233.JPG" alt="GPT_LBA233"></p>
 <h1 id="BIOS"><a href="#BIOS" class="headerlink" title="BIOS"></a><a href="https://zh.wikipedia.org/wiki/BIOS" target="_blank" rel="noopener">BIOS</a></h1><blockquote>
 <p>BIOS（Basic Input/Output System的缩写、中文：基本输入输出系统），在IBM PC兼容系统上，是一种业界标准的固件接口。[1]。BIOS这个字眼是在1975年第一次由CP/M操作系统中出现。BIOS是个人计算机启动时加载的第一个软件。<br>BIOS用于电脑引导时运行系统各部分的自我检测（Power On Self Test），并加载引导程序（IPL）或存储在主存的操作系统。此外，BIOS还向操作系统提供一些系统参数。系统硬件的变化是由BIOS隐藏，程序使用BIOS功能而不是直接控制硬件。现代操作系统会忽略BIOS提供的抽象层并直接控制硬件组件。</p>
 </blockquote>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="柳晓龙的博客">
+    <meta name="keyword"  content="IT学习">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        程序员代码面试指南——栈和队列 - 柳晓龙的博客 | Leon&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Learning Records </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/img1.jpg" />
+        </div>
+        <div class="name">
+            <i>Leon Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈和队列"><span class="toc-text">栈和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Learning Records </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        程序员代码面试指南——栈和队列
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-13 09:06:53</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#算法" title="算法">算法</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>本系列文章为左程云《程序员代码面试指南：IT名企算法与数据结构题目最优解》的学习笔记。</p>
+<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><ol>
+<li><p>设计一个有getMin功能的栈</p>
+<p> 要求：可调用getMin函数在O(1)时间复杂度内，返回栈的最小值。<br> 思路：用另外一个栈（min）维护数据栈（data）的最小值，数据栈操作与普通栈相同。</p>
+<ol>
+<li>压人时，如果两栈都为空，则直接将数据压人min，否则比较min栈顶元素与压人数据的大小，栈顶元素小于等于数据时，不压人；否则压人</li>
+<li>弹出时，如果data弹出的数据与min栈顶数据相等，则min也弹出。<br>如果不用栈维护最小值的话，主要的问题是当最小值被弹出后，很难更新，所以需要另一个栈来维护。这个栈的数据从栈底到栈顶是严格递减的，能够压人栈的都是更”新“（靠近栈顶）更小的。</li>
+</ol>
+</li>
+<li><p>由两个栈组成的队列</p>
+<p> 要求：用两个栈实现队列<br> 思路：一个栈为push栈，一个栈为pop栈。凡队列的压人都直接压人push栈，凡队列的        弹出都由pop栈弹出，如果pop栈为空，则将push栈的所有元素压人pop栈中。<br> 队列是FIFO，栈是FILO，两个栈加起来就是FIFO了。需要注意的是从push栈到pop栈转移数据时要全部转移。如果pop不为空，则push不能向pop转移数据。</p>
+</li>
+<li><p>如何仅用递归函数和栈操作逆序一个栈</p>
+<p> 要求：如题<br> 思路：递归函数本质上就是一个栈，要将一个栈逆序，则至少需要两个栈，所以需要两个递归函数，一个取出当前栈内最低端的数据，另一个存储这些数据，相当于在第二个栈把原来的栈复原了，最后把这些数据压人原来的栈，即可逆序。</p>
+</li>
+<li><p>猫狗队列</p>
+<p> 要求：猫狗都是pet类的派生类，要求猫狗可单独进行队列操作，也可以对pet进行队列操作。<br> 思路：用两个队列分别存放猫和狗，以及其时间戳。</p>
+</li>
+<li><p>用一个栈来实现另一个栈的排序</p>
+<p> 要求：如题<br> 思路：操作过程类似于插入排序，不过是用栈操作来移动数据。</p>
+</li>
+<li><p>用栈来解决汉诺塔问题</p>
+<p> 要求：汉诺塔是有限制的，左右不能直接交换。<br> 思路：用递归实现的话，这个限制其实没什么差别，只是在将n在左右交换时变成两步了而言。用栈实现的话，这个限制实际上是一种简化，在这种限制下，每次只可能有一个操作是正确的，那就找到那个操作就好了。</p>
+</li>
+<li><p>生成窗口最大值数组</p>
+<p> 要求：给定数组和窗口大小，窗口从最左边滑倒最右边，每次滑动一个位置，求每个窗口的最大值。<br> 思路：利用队列，存储变化区间中的最大值的下标。在这道题里，左边界和右边界每次都向右移动一个位置，每次都需要更新区间。因为旧的元素会先被抛弃，所以我们更喜欢新元素，如果新的元素大于或等于旧元素，则旧元素都要弹出；否则，将新元素添加到队列中，因为旧元素会比新元素更早被踢掉，所以虽然新元素较小，但是在后面的窗口中，它还是有机会成为最大值的，所以要保留它的下标。<br> 检查左边界是否大于队列前端的下标，是则弹出，因为它以及超出窗口了，否则，队列前端的即时该区间的最大值下标。</p>
+</li>
+<li><p>构造数组的MaxTree</p>
+<p> 要求：MaxTree是一个二叉树，数组的每个数值对应一个二叉树结点，每棵子树的最大节点都是子树的根节点。数组不可以有重复元素。<br> 思路：每个数的父节点是它左边第一个比它大的数和右边比它大的数中较小的那个；如果左右都没有比它大的数，那它就是根节点。<br> 利用栈来存储计算各个节点左右第一个比它大的数的下标。遍历数组，对于元素Ai，比较栈顶元素与Ai的大小，如果Ai&gt;top，则top被弹出，直到栈为空或top&gt;Ai，然后将Ai入栈。对于Ai，若入栈前队列为空，则Ai左边无比它大的数，否则栈顶即左边第一个比Ai大的数。对于被弹出的元素，则Ai是它右边比它大的第一个数。<br> 遍历完成后，栈内还有元素，栈顶元素右边明显无比它大的数，其余元素右边比它大的第一个数即是它上面的元素。</p>
+</li>
+<li><p>求最大子矩阵的大小</p>
+<p> 要求：对于01矩阵，求其最大的全一子矩阵中的元素个数<br> 思路：遍历每一行，用一个数组记录到达该行时，每一列上连续的1的个数。这样子就得到了直方图，然后将直方图的每个柱进行扩展，看哪个能扩展到最大的面积。想要扩展，则需要连续柱的高度大于等于该柱的高度。这样子就变成了找左右第一个小于自己的数，与8类似。</p>
+</li>
+<li><p>最大值减去最小值小于或等于num的连续子数组数量</p>
+<p>要求：给定数组arr和整数num，求满足最大值减去最小值不超过num的连续子数组的个数。<br>思路：与7类似，都是求某个区间的最值，区别在于我们这里需要维护两个队列一个最大值一个最小值，边界的变化不是窗口的移动，而是是否满足要求。<br>对于【i，j】，若该区间的子数组满足要求，则其子集都满足要求；若不满足要求，则其超集都不满足要求。所以我们可以从0开始，固定左边界，扩展右边界，直到不满足条件，再移动左边界。对于每一个i，其满足条件的最大区间中的各个子数组都满足条件，其中以i为起始的数量有（j-i）个。遍历i，则可以求出所有满足条件的子数组数量。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我认为上述题目中，对于栈和队列的作用主要分为两类：</p>
+<ul>
+<li>一类是模拟操作的，例如汉诺塔，两个栈组成的队列</li>
+<li>另一类则是维护某个区间内的最值，如：<strong>（1）带getMin函数的栈，即是维护栈顶到栈底的最小值</strong></li>
+</ul>
+<p>模拟操作的比较简单，主要总结一下维护区间最值的。<br>在<em>（7）生成窗口最大值数组</em>和<em>（10） 最大值减去最小值小于或等于num的连续子数组数量中</em>，这两道题中的<strong>队列</strong>维护了一个区间【i，j】之间的最值，区间边界是向右移动的，元素进入队列时先根据极值<strong>队尾弹出</strong>更远离极值的元素，元素入栈后右边界就发送了改变，之后再判断左边界是否符合条件，不符合则<strong>队头弹出</strong>，改变左边界。<br>在<em>（1）带getMin函数的栈，即是维护栈顶到栈底的最小值</em>中，<strong>栈</strong>维护了栈底到栈顶的最小值，与其他题目最大的不同是，它的<strong>有些元素会被直接丢弃</strong>，因为它的对象不一定是一个连续的数组。<br><em>（8）构造数组的MaxTree</em>和<em>（9）求最大子矩阵的大小</em>中，<strong>栈</strong>维护了【0，i】区间的最值。但维护最值不是最终目的，最终目的是快速找到<strong>i+1</strong>个元素左边第一个比它大（或小）的元素，以及栈顶元素右边第一个比它大的元素。一个元素入栈，如果栈为空，则表明其左边没有比它更接近最值的元素了，如果栈不为空，则栈顶元素就是第一个比它大的；一个元素被另一个元素”挤出“，则新元素就是被挤出元素的右边第一个比它大的。最后都没有出栈的元素，则说明其右边没有比它大的元素。</p>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lxl026">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>

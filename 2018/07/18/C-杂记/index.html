@@ -11,7 +11,7 @@
 
     <title>
         
-        柳晓龙的博客 | Leon&#39;s Blog
+        C++杂记 - 柳晓龙的博客 | Leon&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -111,148 +115,49 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-08-13</div>
-        <div class="post-info">
-            <a href="/2018/08/13/程序员代码面试指南——栈和队列/">
-                <h3>
-                    程序员代码面试指南——栈和队列
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#算法" title="算法">算法</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        C++杂记
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-18</div>
-        <div class="post-info">
-            <a href="/2018/07/18/C-杂记/">
-                <h3>
-                    C++杂记
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#C++" title="C++">C++</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-07-18 09:48:44</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#C++" title="C++">C++</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-13</div>
-        <div class="post-info">
-            <a href="/2018/07/13/Linux学习之路0x02——磁盘分区/">
-                <h3>
-                    Linux学习之路0x02——磁盘分区
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-12</div>
-        <div class="post-info">
-            <a href="/2018/07/12/Linux学习之路0x01——什么是Linux/">
-                <h3>
-                    Linux学习之路0x01——什么是Linux
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-12</div>
-        <div class="post-info">
-            <a href="/2018/07/12/Linux学习之路0x00——计算机概论/">
-                <h3>
-                    Linux学习之路0x00——计算机概论
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-12</div>
-        <div class="post-info">
-            <a href="/2018/07/12/使用hexo部署GitHub博客过程记录/">
-                <h3>
-                    使用hexo部署GitHub博客过程记录
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#miscellaneous" title="miscellaneous">miscellaneous</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-10</div>
-        <div class="post-info">
-            <a href="/2018/07/10/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    
+    <div class="post-content ">
+        <ul>
+<li><p>endl与”\n”的区别：<br>  “endl”除了具备”\n”的换行功能外，还调用输出流的flush函数，刷新缓冲区，让数据直接写入文件或者屏幕上。这两种都可以用的，不过如果不需要立即显示，并且要兼顾代码的执行效率的时候，可以考虑”\n”，这样不刷新缓冲区，所以这时的数据可能被存在缓冲区里，没有立即写入设备</p>
+</li>
+<li><p>const对象默认为文件的局部变量<br>  在全局域定义非const变量时，它在整个程序中都可以访问。但在全局域中声明的const的变量是定义该对象的文件的局部变量，不能被其他文件访问。<br>  通过指定const变量为extern，就可以在整个程序中访问cosnt对象</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file1.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> bufsize = <span class="number">8</span>;	<span class="comment">// difinition</span></span><br><span class="line"><span class="comment">// file2.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> bufsize;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>非const引用只能绑定到与该引用同类型的对象<br>  const引用则可以绑定到不同但相关类型的对象或者绑定右值</p>
+</li>
+<li><p>头文件保护符<br>  利用宏保证头文件不会被重复包含在同一个源文件中，导致重复定义的问题。</p>
+</li>
+<li><p>在头文件中应该只定义确实需要的东西，因此，应该使用完全限定的标准库名字，如std::cout</p>
+</li>
 </ul>
 
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -299,7 +204,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

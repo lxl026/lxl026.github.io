@@ -11,7 +11,7 @@
 
     <title>
         
-        Linux学习之路0x00——计算机概论 - 柳晓龙的博客 | Leon&#39;s Blog
+        Linux学习之路0x03——文件权限 - 柳晓龙的博客 | Leon&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机概论"><span class="toc-text">计算机概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机的硬件组成的5个部件"><span class="toc-text">计算机的硬件组成的5个部件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU架构与相关设备原件"><span class="toc-text">CPU架构与相关设备原件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-text">操作系统</span></a></li></ol></li></ol>
+    
 </div>
     
 </div>
@@ -119,15 +119,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Linux学习之路0x00——计算机概论
+        Linux学习之路0x03——文件权限
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-07-12 13:11:20</span></span>
+        <span class="attr">发布于：<span>2018-09-14 18:29:29</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         
@@ -138,39 +138,24 @@
     </div>
     <div class="post-content ">
         <p><em>本系列文章主要记录本人学习<a href="http://linux.vbird.org/" target="_blank" rel="noopener">《鸟哥的Linux私房菜》</a>过程中的重点难点。之前也有学习过Linux，但都是半途而废，现在希望有所记录，有所收获，坚持不懈。</em></p>
-<h1 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h1><p>本文章对应<a href="http://linux.vbird.org/" target="_blank" rel="noopener">《鸟哥的Linux私房菜》</a>的第零章《计算机概论》。这一章的内容，实际上在《计算机组成原理》课程中已经学过了，但很容易忘记，所以就将重点做个简单的记录，重点在于那些重要的，易忘的，不做完全的记录。</p>
-<h2 id="计算机的硬件组成的5个部件"><a href="#计算机的硬件组成的5个部件" class="headerlink" title="计算机的硬件组成的5个部件"></a>计算机的硬件组成的5个部件</h2><ul>
-<li>输入</li>
-<li>输出</li>
-<li>控制单元</li>
-<li>运算单元</li>
-<li>存储</li>
-</ul>
-<h2 id="CPU架构与相关设备原件"><a href="#CPU架构与相关设备原件" class="headerlink" title="CPU架构与相关设备原件"></a>CPU架构与相关设备原件</h2><ul>
-<li>北桥： 负责链接速度较快的CPU、内存和显卡等原件，现一般整合在CPU中</li>
-<li>南桥： 负责链接速度较慢的设备接口，如硬盘、USB、网卡等</li>
-<li>内存： DRAM（SDRAM、DDR）</li>
-<li>CPU高速缓存：SRAM</li>
-<li>固件(firmware)： 如BIOS程序写在固件中，掉电保持。</li>
-<li>磁盘<ul>
-<li>磁头（head）</li>
-<li>磁道（track）</li>
-<li>柱面（cylinder）</li>
-<li>扇区（sector）</li>
-<li>圆盘（platter）</li>
-<li>缓存</li>
-<li>接口 SATA、SAS、USB</li>
-</ul>
-</li>
-<li>设备IO与IRQ中断信道</li>
-</ul>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统是用户和计算机的接口，同时也是计算机硬件和其他软件的接口。<br>核心功能：</p>
+<p>在Linux下，一切皆文件。每个文件都有对应的属性。<br>在某个目录下执行<code>ls -l</code>可以列出目录中非隐藏文件的属性，如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line">total 64</span><br><span class="line">-rw-------. 1 root root  1424 Jun  3 05:17 anaconda-ks.cfg</span><br><span class="line">-rwxr-xr-x. 1 root root 31584 Sep  3 21:23 a.out</span><br><span class="line">-rw-r--r--. 1 root root    74 Sep  3 01:12 pay.txt</span><br><span class="line">-rwxr-xr-x. 1 root root  8792 Sep  4 19:30 pipe</span><br><span class="line">-rw-r--r--. 1 root root  1027 Sep  4 19:30 pipe.c</span><br><span class="line">-rw-r--r--. 1 root root   650 Sep  3 00:55 regular_express.txt</span><br><span class="line">-rw-r--r--. 1 root root  1718 Sep  3 21:23 test.cpp</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://linux.vbird.org/linux_basic/0210filepermission//centos7_0210filepermission_2.gif" alt="文件属性示意图" title="文件属性示意图">]</p>
+<p><img src="http://linux.vbird.org/linux_basic/0210filepermission//0210filepermission_3.gif" alt="权限内容" title="权限内容"></p>
+<p><em>图片来自鸟哥的Linux私房菜</em></p>
+<p>第一个字符表示文件类型</p>
 <ul>
-<li>系统调用接口</li>
-<li>程序管理</li>
-<li>内存管理</li>
-<li>文件系统管理</li>
-<li>设备驱动（操作系统提供接口，厂商提供驱动程序）</li>
+<li>d：目录</li>
+<li>-：文件</li>
+<li>l：链接文件</li>
+<li>b：设备文件中可随机存取的设备</li>
+<li>c：设备文件中的序列字符存取设备，如键盘</li>
+</ul>
+<p>改变用户组：<code>chgrp [-R] GroupName FileName</code><br>改变所有者：<code>chown [-R] UserName FileName</code><br>改变权限：<code>chmod [-R] xyz FileName</code> </p>
+<p>对于目录，<code>r</code>权限指读取目录中的文件名，<code>w</code>权限允许在目录下进行增删，<code>x</code>权限允许进入；<br>对于文件，则分别指读取，修改和执行<br>此外还有特殊权限：</p>
+<ul>
+<li>SUID 只对可执行文件有效，指在文件执行过程中，执行者可获得了文件所有者的权限，如果所有者也没有文件的可执行权限，则表示为<code>S</code></li>
+<li>SGID 对于文件，只对可执行文件有效，在文件执行过程中，执行者获取用户组权限，如果用户组也没有文件的可执行权限，则表示为<code>S</code>；对于目录，进入该目录的使用者的有效用户组会变成该目录所属的用户组。</li>
+<li>SBIT 只对目录有效，在这个目录内的文件，只有其所有者或root可以删除</li>
 </ul>
 
         

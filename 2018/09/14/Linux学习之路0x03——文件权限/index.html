@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通权限"><span class="toc-text">普通权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊权限"><span class="toc-text">特殊权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预设权限"><span class="toc-text">预设权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐藏权限"><span class="toc-text">隐藏权限</span></a></li></ol>
 </div>
     
 </div>
@@ -127,7 +127,7 @@
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
         <span>/</span>
         
         
@@ -138,7 +138,8 @@
     </div>
     <div class="post-content ">
         <p><em>本系列文章主要记录本人学习<a href="http://linux.vbird.org/" target="_blank" rel="noopener">《鸟哥的Linux私房菜》</a>过程中的重点难点。之前也有学习过Linux，但都是半途而废，现在希望有所记录，有所收获，坚持不懈。</em></p>
-<p>在Linux下，一切皆文件。每个文件都有对应的属性。<br>在某个目录下执行<code>ls -l</code>可以列出目录中非隐藏文件的属性，如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line">total 64</span><br><span class="line">-rw-------. 1 root root  1424 Jun  3 05:17 anaconda-ks.cfg</span><br><span class="line">-rwxr-xr-x. 1 root root 31584 Sep  3 21:23 a.out</span><br><span class="line">-rw-r--r--. 1 root root    74 Sep  3 01:12 pay.txt</span><br><span class="line">-rwxr-xr-x. 1 root root  8792 Sep  4 19:30 pipe</span><br><span class="line">-rw-r--r--. 1 root root  1027 Sep  4 19:30 pipe.c</span><br><span class="line">-rw-r--r--. 1 root root   650 Sep  3 00:55 regular_express.txt</span><br><span class="line">-rw-r--r--. 1 root root  1718 Sep  3 21:23 test.cpp</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="普通权限"><a href="#普通权限" class="headerlink" title="普通权限"></a>普通权限</h2><p>在Linux下，一切皆文件。每个文件都有对应的属性。<br>在某个目录下执行<code>ls -l</code>可以列出目录中非隐藏文件的属性，如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line">total 64</span><br><span class="line">-rw-------. 1 root root  1424 Jun  3 05:17 anaconda-ks.cfg</span><br><span class="line">-rwxr-xr-x. 1 root root 31584 Sep  3 21:23 a.out</span><br><span class="line">-rw-r--r--. 1 root root    74 Sep  3 01:12 pay.txt</span><br><span class="line">-rwxr-xr-x. 1 root root  8792 Sep  4 19:30 pipe</span><br><span class="line">-rw-r--r--. 1 root root  1027 Sep  4 19:30 pipe.c</span><br><span class="line">-rw-r--r--. 1 root root   650 Sep  3 00:55 regular_express.txt</span><br><span class="line">-rw-r--r--. 1 root root  1718 Sep  3 21:23 test.cpp</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://linux.vbird.org/linux_basic/0210filepermission//centos7_0210filepermission_2.gif" alt="文件属性示意图" title="文件属性示意图">]</p>
 <p><img src="http://linux.vbird.org/linux_basic/0210filepermission//0210filepermission_3.gif" alt="权限内容" title="权限内容"></p>
 <p><em>图片来自鸟哥的Linux私房菜</em></p>
@@ -151,12 +152,16 @@
 <li>c：设备文件中的序列字符存取设备，如键盘</li>
 </ul>
 <p>改变用户组：<code>chgrp [-R] GroupName FileName</code><br>改变所有者：<code>chown [-R] UserName FileName</code><br>改变权限：<code>chmod [-R] xyz FileName</code> </p>
-<p>对于目录，<code>r</code>权限指读取目录中的文件名，<code>w</code>权限允许在目录下进行增删，<code>x</code>权限允许进入；<br>对于文件，则分别指读取，修改和执行<br>此外还有特殊权限：</p>
-<ul>
+<p>对于目录，<code>r</code>权限指读取目录中的文件名，<code>w</code>权限允许在目录下进行增删，<code>x</code>权限允许进入；<br>对于文件，则分别指读取，修改和执行</p>
+<h2 id="特殊权限"><a href="#特殊权限" class="headerlink" title="特殊权限"></a>特殊权限</h2><ul>
 <li>SUID 只对可执行文件有效，指在文件执行过程中，执行者可获得了文件所有者的权限，如果所有者也没有文件的可执行权限，则表示为<code>S</code></li>
 <li>SGID 对于文件，只对可执行文件有效，在文件执行过程中，执行者获取用户组权限，如果用户组也没有文件的可执行权限，则表示为<code>S</code>；对于目录，进入该目录的使用者的有效用户组会变成该目录所属的用户组。</li>
 <li>SBIT 只对目录有效，在这个目录内的文件，只有其所有者或root可以删除</li>
 </ul>
+<h2 id="预设权限"><a href="#预设权限" class="headerlink" title="预设权限"></a>预设权限</h2><p>新建文件或文件夹都有一个预设的权限以及预设的要减去的权限（umask）<br>新建文件的预设权限是666，新建文件夹的预设权限是777<br>一般用户的umask是002，root的umask是022</p>
+<h2 id="隐藏权限"><a href="#隐藏权限" class="headerlink" title="隐藏权限"></a>隐藏权限</h2><p>chattr [+-=][ASacdistu]档案或目录名称<br>选项与参数：<br>&#43; ：增加某一个特殊参数，其他原本存在参数则不动。<br>&ndash; ：移除某一个特殊参数，其他原本存在参数则不动。<br>= ：设定一定，且仅有后面接的参数</p>
+<p>A ：当设定了A 这个属性时，若你有存取此档案(或目录)时，他的存取时间atime 将不会被修改，可避免I/O 较慢的机器过度的存取磁碟。(目前建议使用档案系统挂载参数处理这个项目)<br>S ：一般档案是非同步写入磁碟的(原理请参考前一章sync的说明)，如果加上S这个属性时，当你进行任何档案的修改，该更动会『同步』写入磁碟中。<br>a ：当设定a 之后，这个档案将只能增加资料，而不能删除也不能修改资料，只有root 才能设定这属性<br>c ：这个属性设定之后，将会自动的将此档案『压缩』，在读取的时候将会自动解压缩，但是在储存的时候，将会先进行压缩后再储存(看来对于大档案似乎蛮有用的！)<br>d ：当dump 程序被执行的时候，设定d 属性将可使该档案(或目录)不会被dump 备份<br>i ：这个i 可就很厉害了！他可以让一个档案『不能被删除、改名、设定连结也无法写入或新增资料！』对于系统安全性有相当大的助益！只有root 能设定此属性<br>s ：当档案设定了s 属性时，如果这个档案被删除，他将会被完全的移除出这个硬碟空间， 所以如果误删了，完全无法救回来了喔！<br>u ：与s 相反的，当使用u 来设定档案时，如果该档案被删除了，则资料内容其实还存在磁碟中， 可以使用来救援该档案喔！<br>注意1：属性设定常见的是a 与i 的设定值，而且很多设定值必须要身为root 才能设定<br>注意2：xfs 档案系统仅支援AadiS 而已</p>
+<p>lsattr [-adR]档案或目录<br>选项与参数：<br>-a ：将隐藏档的属性也秀出来；<br>-d ：如果接的是目录，仅列出目录本身的属性而非目录内的档名；<br>-R ：连同子目录的资料也一并列出来！ </p>
 
         
         <div id="comment-container">

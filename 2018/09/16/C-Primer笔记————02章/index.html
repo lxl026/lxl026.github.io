@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="柳晓龙的博客">
+    <meta name="keyword"  content="IT学习">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        C++ Primer笔记——02章 - 柳晓龙的博客 | Leon&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Learning Records </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/img1.jpg" />
+        </div>
+        <div class="name">
+            <i>Leon Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#《C-primer-第二章-变量和基本类型》-读书笔记"><span class="toc-text">《C++ primer 第二章 变量和基本类型》 读书笔记</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Learning Records </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        C++ Primer笔记——02章
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-16 01:02:20</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#C++ Primer" title="C++ Primer">C++ Primer</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="《C-primer-第二章-变量和基本类型》-读书笔记"><a href="#《C-primer-第二章-变量和基本类型》-读书笔记" class="headerlink" title="《C++ primer 第二章 变量和基本类型》 读书笔记"></a>《C++ primer 第二章 变量和基本类型》 读书笔记</h3><ul>
+<li><p>C++是一种静态数据类型语言，其类型检查发生在编译时。</p>
+</li>
+<li><p>数据类型是程序的基础：它确定了数据的意义以及可对数据进行的操作。</p>
+</li>
+<li><p>给无符号类型赋值一个超出其范围的值时，结果是初始值对无符号类型能表达的数值总数取模的结果。给符合类型赋值超范围时，结果是未定义的。</p>
+</li>
+<li><p>切勿混用带符合类型和无符号类型。因为带符号类型或被先转换为无符号类型，一旦带符号类型为负数，结果将会不符合预期。</p>
+</li>
+<li><p>声明使得名字为程序所知；<br>定义负责创建与名字关联的实体。<br>故变量能且只能被定义一次，但可以被声明多次。</p>
+</li>
+<li><p>引用即别名，不是对象。定义引用时，程序把引用和初始值绑定（bind）在一起，一旦绑定完成，引用无法解绑，故引用必须初始化。</p>
+</li>
+<li><p>0，NULL，和nullptr的区别<br>在C语言中，NULL被预编译为<code>((void*)0)</code>，在C++中，NULL则预编译为0，这可能会引起函数重载的一些问题，如：<br>  <code>void foo(type1 a, type2 *b);</code><br>  <code>void foo(type1 a, int b);</code><br>  在调用<code>foo(a,NULL)</code>时，调用的是<code>void foo(type1 a, int b)</code>而不是我们预期的<code>void foo(type1 a, type2 *b)</code>。<br><strong>C++11</strong>中的nullptr 解决了这类问题。nullptr是一个std::nullptr_t类型的字面值空指针常量，它不会被转换为整型。</p>
+</li>
+<li><p>在指针或引用的定义语句中<code>=</code>左边的<code>*</code>和<code>&amp;</code>是类型修饰符，是声明符的一部分。如在<code>int *p;</code>中，<code>*p</code>是一个整体，<code>int</code>是其基本数据类型。<br><code>int *p, a;</code>中，<code>p</code>是指向<code>int</code>类型的指针，<code>a</code>是<code>int</code>类型。</p>
+</li>
+<li><p>const限定符<br>const对象必须初始化，且初始化后不能再为之赋值。<br>默认状态下，const对象仅在文件内有效，若要在文件间共享，则需要加<code>extern</code>关键字。</p>
+</li>
+<li><p>const引用<br>非常量引用的类型必须与被引用的类型一致，但const引用则可以绑定非常量的对象，字面值甚至是一般表达式。在这个过程中实际上是产生了一个const类型的临时量，引用再去绑定这个临时量。如：<br>执行<code>double d = 3.14; const int &amp;i = d;</code>的实际过程为：<code>double d = 3.14; const int tmp = d; const int &amp;i = tmp;</code>。</p>
+</li>
+<li><p>指向常量的指针与常量指针<br>  <code>const type *p = &amp;val;</code> <code>p</code>是一个指向常量的指针，可以改变它指向的对象，但是不能通过它修改对象的值。<br>  <code>type *const p = &amp;val;</code> <code>p</code>则是一个常量指针，必须初始化，且初始化后不能修改它指向的对象，但是可以通过它修改对象的值。<br>  <code>const type *const p = &amp;val;</code> <code>p</code>是一个指向常量的常量指针，既不能修改它指向的对象，也不能通过它修改对象的值。第一个<code>const</code>是底层<code>const</code>，修饰的是指针指向的对象，第二个<code>const</code>是顶层<code>const</code>，修饰的是指针本身。</p>
+</li>
+<li><p>常量表达式：是值不会改变并且在编译过程就可以得到计算结果的表达式。</p>
+</li>
+<li><p><code>constexpr</code>变量<br><strong>C++11</strong>允许将变量声明为<code>constexpr</code>类型，以便由编译器来验证变量的值是否是一个常量表达式。</p>
+</li>
+<li><p>字面值类型（literal type）<br>能用<code>constexpr</code>修饰的简单、易见、易得的类型，如算术类型，引用和指针。string类型、IO库和类类型不是字面值类型，不能用<code>constexpr</code>来修饰。</p>
+</li>
+<li><p>指针与constexpr<br>constexpr限定词只对指针有效，对指针指向的对象无效。<br><code>const int *p = nullptr;        // p是一个指向整型常量的指针</code><br><code>constexpr int *q = nullptr    // q是一个指向整数的常量指针</code></p>
+</li>
+<li><p>类型别名</p>
+<ul>
+<li><code>typedef double wages;</code></li>
+<li><code>using INT32_t=int;</code><strong>C++11</strong></li>
+</ul>
+</li>
+<li><p>常量和指针类型别名</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> * pstring;</span><br><span class="line"><span class="keyword">const</span> pstring cstr = <span class="number">0</span>;	<span class="comment">// cstr是一个指向char类型的常量指针</span></span><br><span class="line"><span class="keyword">const</span> pstring *ps;		<span class="comment">// ps是一个指针，指向的对象是指向char类型的常量指针</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由上面可以看出，<code>const</code>修饰的是指针，而不是<code>char</code></p>
+<ul>
+<li><p><code>auto</code>类型说明符<br>  <strong>C++11</strong>新特性，可由编译器自动推断表达式类型，然后将变量设置为表达式类型。故<code>auto</code>定义的变量必须由初始化。<br>  同一语句中可定义多个变量，但变量的基础类型必须一致。<br>  <code>auto</code>一般会忽略顶层<code>const</code>而保留底层<code>const</code></p>
+</li>
+<li><p><code>decltype</code>类型指示符<br>  <strong>C++11</strong>新特性。在编译过程中推断表达式的返回类型，但不调用表达式，亦即不用表达式的结果初始化变量。<br>  <code>decltype(f()) sum = x;    // sum的类型就是f的返回值类型</code><br>  不同于<code>auto</code>，<code>decltype</code>不忽略顶层<code>const</code>。<br>  <code>decltype</code>的变量如果加上了一层或多层()，则会得到引用类型。<br>  指针解引用操作得到的结果是引用类型</p>
+</li>
+</ul>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lxl026">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>

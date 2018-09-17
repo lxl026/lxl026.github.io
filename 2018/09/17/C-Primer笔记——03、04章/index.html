@@ -11,7 +11,7 @@
 
     <title>
         
-        柳晓龙的博客 | Leon&#39;s Blog
+        C++Primer笔记——03、04章 - 柳晓龙的博客 | Leon&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#《C-Primer-第三、四章》读书笔记"><span class="toc-text">《C++ Primer 第三、四章》读书笔记</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -111,52 +115,71 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-12</div>
-        <div class="post-info">
-            <a href="/2018/07/12/使用hexo部署GitHub博客过程记录/">
-                <h3>
-                    使用hexo部署GitHub博客过程记录
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#miscellaneous" title="miscellaneous">miscellaneous</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        C++Primer笔记——03、04章
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-10</div>
-        <div class="post-info">
-            <a href="/2018/07/10/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-17 14:13:36</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#C++ Primer" title="C++ Primer">C++ Primer</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <h3 id="《C-Primer-第三、四章》读书笔记"><a href="#《C-Primer-第三、四章》读书笔记" class="headerlink" title="《C++ Primer 第三、四章》读书笔记"></a>《C++ Primer 第三、四章》读书笔记</h3><ul>
+<li><p>命名空间</p>
+<ul>
+<li>使用作用域符    <code>std::cout</code></li>
+<li>using 声明    <code>using std::cout</code></li>
+<li>using 指示    <code>using namespacce std</code></li>
+</ul>
+</li>
+<li><p>头文件不要包含using声明</p>
+</li>
+<li><p>直接初始化：<strong>不</strong>使用等号初始化一个对象<br>拷贝初始化：使用等号初始化一个对象；将一个对象作为实参传递给非引用类型的形参；从一个返回类型为非引用类型的函数返回一个对象；用花括号初始化一个数据或struct</p>
+</li>
+<li><p>理解复杂数组声明<br>  有括号：从内到外<br>  无括号：从右到左</p>
+</li>
+<li><p>运算符重载可重载运算符对象和返回值类型，但是不可以改变运算对象的个数、运算符的优先级以及结合律</p>
+</li>
+<li><p>左值和右值<br>当一个对象被用作右值时，用的是对象的值（内容）<br>当一个对象被用作左值时，用的是对象的身份（在内存中的位置）</p>
+</li>
+<li><p>求值顺序是不确定的，所以如果改变了某个运算对象的值，在表达式的其他地方就不要再使用这个运算对象</p>
+</li>
+<li><p>尽量不要用递增递减运算符的后置版本</p>
+</li>
+<li><p><strong>sizeof</strong>运算符并不实际计算其运算对象的值，比如：<br><code>sizeof(++i)</code>并不会让i递增，也可以通过某个类型的对象的空指针计算该类型的大小</p>
+</li>
+<li><p>类型转换</p>
+<ul>
+<li><p>隐式转换<br>  整型提升<br>  数组转指针<br>  在if语句中，指针转bool</p>
+</li>
+<li><p>显式转换</p>
+<ul>
+<li>命名的强制类型转换：<code>cast-name&lt;type&gt;(expression)</code><br><code>static_cast</code>：任何具有明确意义的转换（不包括底层const）<br><code>dynamic_cast</code>：支持运行时类型识别<br><code>const_cast</code>：去掉const<br><code>reinterpret_cast</code>：低层次上的重新解释</li>
+<li>旧式的强制类型转换<br><code>type(expr)</code><br><code>(type)expr</code><br>如果const或static转换合法就用，不合法就执行与reinterpret_cast类似的功能</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -203,7 +226,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

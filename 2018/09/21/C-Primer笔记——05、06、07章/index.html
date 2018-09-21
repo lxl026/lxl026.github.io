@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="柳晓龙的博客">
+    <meta name="keyword"  content="IT学习">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        C-Primer笔记——05、06、07章 - 柳晓龙的博客 | Leon&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Learning Records </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/img1.jpg" />
+        </div>
+        <div class="name">
+            <i>Leon Liu</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#《C-Primer-第五、六、七章》读书笔记"><span class="toc-text">《C++ Primer 第五、六、七章》读书笔记</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Learning Records </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        C-Primer笔记——05、06、07章
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-21 16:31:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#C++ Primer" title="C++ Primer">C++ Primer</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="《C-Primer-第五、六、七章》读书笔记"><a href="#《C-Primer-第五、六、七章》读书笔记" class="headerlink" title="《C++ Primer 第五、六、七章》读书笔记"></a>《C++ Primer 第五、六、七章》读书笔记</h3><ul>
+<li><p>悬垂<strong>else</strong><br>  <strong>else</strong>与离它最近的未匹配<strong>if</strong>匹配</p>
+</li>
+<li><p><strong>switch</strong>内部的变量定义<br>  在<strong>switch</strong>内，如果某处一个带初值的变量位于作用域之外，在另一处该变量位于作用域之内，则从前一处跳转到后一处的行为是非法的。<br>  不要在case语句中定义变量，要定义的话就加上花括号，把变量局限在代码块内</p>
+</li>
+<li><p>如果要用引用作为函数参数，尽量使用常量引用，否则容易带来误导，以及限制函数所接受的实参类型。</p>
+</li>
+<li><p>尾置返回类型<br>  <code>auto func(int i) -&gt; int (*) [10] // 返回类型为指向长度为10的整型数组的指针</code></p>
+</li>
+<li><p>重载与<strong>const</strong><br>  顶层<strong>const</strong>不影响传入函数的对象，即<code>void func(type)</code>和<code>void func(const type)</code>是同一个函数<br>  底层<strong>const</strong>则不同，<code>void func(const type *)</code>和<code>void func(type *)</code>是两个函数</p>
+</li>
+<li><p>重载与作用域<br>  局部函数声明会隐藏外层作用域中声明的同名函数实体</p>
+</li>
+<li><p>在C++中，名字查找发生在类型检查之前</p>
+</li>
+<li><p>内联函数可避免函数调用的开销<br>内联说明只是向编译器发出一个请求，编译器可以忽略这个请求</p>
+</li>
+<li><p><strong>constexpr</strong>函数<br>  其返回类型与形参必须都是字面值类型<br>  只有一个<strong>return</strong>语句<br>  若其实参不是常量，则其返回结果不是常量</p>
+</li>
+<li><p><strong>assert</strong>预处理宏（<code>#include &lt;cassert&gt;</code>）<br>  <code>assert(expr)</code><br>  若expr为真，assert什么也不做；若为假，则输出信息并终止程序的执行<br>  宏定义<code>#define NDEBUG</code>可解除<strong>assert</strong></p>
+</li>
+<li><p>函数匹配：<br>  候选函数：与被调用的函数同名，且其声明在调用点可见<br>  可行函数：形参与实参数量相等，且实参类型与对应的形参类型相同或可转换<br>  最佳匹配：有且只有一个函数，每个实参的匹配都不劣于其他可行函数，且至少有一个实参匹配优于其他可行函数提供的匹配</p>
+</li>
+<li><p><strong>const</strong>成员函数<br><strong>const</strong>的作用是修改隐式<strong>this</strong>指针的类型<br>不能在一个常量对象上调用普通的成员函数</p>
+</li>
+<li><p>一般来说，如果非成员函数是类接口的组成部分，则这些函数的声明应该与类放在同一个头文件内</p>
+</li>
+<li><p>只有类没有声明任何的构造函数时，编译器才会生成默认构造函数</p>
+</li>
+<li><p>可变数据成员：<strong>mutable</strong><br>  即使是const对象、从const成员函数也可以修改<strong>mutable</strong>变量</p>
+</li>
+<li><p>当我们提供一个类内初始值时，我们必须以赋值符号<strong>=</strong>或花括号表示</p>
+</li>
+<li><p>编译器处理完类中所有的声明后才会处理成员函数的定义</p>
+</li>
+<li><p>类型名需要特殊处理<br>  类不能重新定义外层作用域中已定义的某个类型名，类中的类型名也要在使用前声明</p>
+</li>
+<li><p>如果成员是<strong>const</strong>、引用或某种为提供默认构造函数的类类型，我们必须通过构造函数初始化列表为这些成员提供初始值</p>
+</li>
+<li><p>成员的初始化顺序与他们在类中出现的顺序一致</p>
+</li>
+<li><p>委托构造函数<br>  受委托构造函数先执行初始化列表，再执行函数体，然后把控制器交还给委托函数的函数体</p>
+</li>
+<li><p>编译器只允许一步隐式的类类型转换</p>
+</li>
+<li><p><strong>explicit</strong>抑制了构造函数参数的隐式类型转换<br>它只对一个参数的构造函数有效，<strong>explicit</strong>关键字只能出现在类内，其构造函数只能用于直接初始化</p>
+</li>
+<li><p>聚合类<br>  所有成员都是<strong>public</strong>的<br>  没有定义然后构造函数<br>  没有类内初始值<br>  没有基类也没有虚函数<br>  可以提供一个花括号括起来的成员初始值来初始化对象</p>
+</li>
+<li><p>一般在类外定义和初始化静态成员</p>
+</li>
+<li><p>静态成员和指针成员可以是不完全类型</p>
+</li>
+<li><p>可使用静态成员作为默认参数</p>
+</li>
+</ul>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lxl026">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
